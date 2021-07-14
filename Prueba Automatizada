@@ -1,0 +1,45 @@
+package com.qualitystream.tutorial;
+
+import static org.junit.Assert.*;
+
+import org.junit.After;
+import org.junit.Before;
+import org.junit.Test;
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+
+public class PaginaChoucair_AutomatedTest {
+	
+	private WebDriver driver;
+	By LinkLocator = By.linkText("Empleos");
+	By PageLocator = By.xpath("//img[@src='https://www.choucairtesting.com/wp-content/uploads/2019/07/banner.png']");
+
+	
+	
+	@Before
+	public void setUp() throws Exception {
+		
+		System.setProperty("webdriver.chrome.driver", "./src/test/resources/chromedriver/chromedriver.exe");
+		driver = new ChromeDriver();
+		driver.manage().window().maximize();
+		driver.get("https://www.choucairtesting.com/");
+	}
+
+	@After
+	public void tearDown() throws Exception {
+		
+		driver.quit();
+	}
+
+	@Test
+	public void clickEmpleos() throws InterruptedException {
+		
+		driver.findElement(LinkLocator).click();
+		Thread.sleep(2000);
+		
+		}
+	
+
+	
+}
